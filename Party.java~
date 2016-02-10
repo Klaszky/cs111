@@ -1,0 +1,48 @@
+//Party.java
+public class Party{
+
+	public static void main(String[] args){
+
+		double peopleAtParty, numSlicesPerPerson, numSodasPerPerson;
+		double costOfPizza, numSlicesPerPizza, costOfSoda, numSodaPerCase;
+
+		int pizzaToBuy, sodaToBuy;
+
+		double totalCost;
+
+		peopleAtParty = 100;//IO.readDouble();
+		numSlicesPerPerson = 3;//IO.readDouble();
+		numSodasPerPerson = 2;//IO.readDouble();
+		costOfPizza = 7.99;//IO.readDouble();
+		numSlicesPerPizza = 8;//IO.readDouble();
+		costOfSoda = 24.99;//IO.readDouble();
+		numSodaPerCase = 72;//IO.readDouble();
+
+		pizzaToBuy = (int)((peopleAtParty * numSlicesPerPerson) / numSlicesPerPizza);
+
+		if (pizzaToBuy < ((peopleAtParty * numSlicesPerPerson) / numSlicesPerPizza)){
+			pizzaToBuy += 1;
+		}
+
+		sodaToBuy = (int)((peopleAtParty * numSodasPerPerson) / numSodaPerCase);
+
+		if (sodaToBuy < ((peopleAtParty * numSodasPerPerson) / numSodaPerCase)){
+			sodaToBuy += 1;
+		}
+
+		totalCost = (pizzaToBuy * costOfPizza) + (sodaToBuy * costOfSoda);
+
+
+		System.out.println(pizzaToBuy);
+		System.out.println(pizzaToBuy * costOfPizza);
+
+		System.out.println(sodaToBuy);
+		System.out.println(sodaToBuy * costOfSoda);
+
+		System.out.println(totalCost);
+		System.out.println(303.62 + 74.97);
+
+		IO.outputDoubleAnswer(totalCost);
+
+	}
+}
