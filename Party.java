@@ -15,7 +15,7 @@ public class Party{
 
   double totalCost;
 
-  //getting part info from user
+  //getting party info from user
   System.out.print("Enter number of people attending the party: ");
   peopleAtParty = IO.readInt();
 
