@@ -10,11 +10,11 @@ public class Scores{
 
 		System.out.println("java Scores");
 
-		System.out.print("\nEnter the number of judges: ");
+		System.out.print("\nEnter the number of judges(min 3): ");
 		judges = IO.readInt();
 
-		while(judges <= 0){
-			System.out.println("I didn't understand that.");
+		while(judges <= 2){
+			IO.reportBadInput();
 			System.out.print("Enter the number of judges: ");
 			judges = IO.readInt();
 		}
@@ -24,7 +24,7 @@ public class Scores{
 			input = IO.readDouble();
 
 			while(input < 0.0 || input > 10.0){
-				System.out.println("That isn't a valid score.");
+				IO.reportBadInput();
 				System.out.print("Enter score: ");
 				input = IO.readDouble();
 			}

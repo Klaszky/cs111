@@ -6,7 +6,7 @@ public class TwoSmallest{
 
 		int counter = 0;
 
-		double sentinel, input, lowest = -99999999, secondLowest= -99999999;
+		double sentinel, input, lowest = -2147483648, secondLowest = -2147483648;
 
 		System.out.print("Enter a number. This that will end the program: ");
 		sentinel = IO.readDouble();
