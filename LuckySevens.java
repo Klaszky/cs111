@@ -6,25 +6,28 @@ public class LuckySevens{
 
 		System.out.println("java LuckySevens");
 
-		int lowerBound, upperBound, lenString, numberOfSevens = 0;
-		String len;
+		int lowerBound, upperBound, testNum, numberOfSevens = 0;
 
+		//gets bounds for loop
 		System.out.print("Enter a lower bound: ");
 		lowerBound = IO.readInt();
 		System.out.print("Enter an upper bound: ");
 		upperBound = IO.readInt();
 
+		if(lowerBound > upperBound){
+			IO.reportBadInput();
+			return;
+		}
 		for(int number = lowerBound; number <= upperBound; number++){
 
-			//getting an infinite loop.... need to adjust logic
-			while(number != 0){
-				if (number % 10 == 7 || number == 7){
+			testNum = number;
+
+			while(testNum != 0){
+				if (testNum % 10 == 7 || testNum % 10 == -7){
 					numberOfSevens++;
 				}
 
-				number /= 10;
-
-				System.out.println(number);
+				testNum /= 10;
 			}
 		}
 
