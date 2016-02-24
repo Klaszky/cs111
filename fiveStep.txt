@@ -1,0 +1,53 @@
+General Problem:
+	ask user for bunch of numbers
+	soon as user enters a neg number
+	output sum of all previous numbers
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Teacher changed from sum to average
+___________________________
+step 1: 
+	Inputs: variable amount of integers 
+	Outputs: a (sum) Average of all positive numbers entered before a neg number was entered
+		or apology if nothing was entered. 
+	Errors: anything other than a number is entered
+___________________________
+
+step 2:
+	Need to:
+		Take input
+		Output Stuff
+		Need to add
+		Need if statements
+		Need Loop
+		Need vars
+		!Need Division
+___________________________
+step 3:
+	Program Start/Welcome -> Declare int input & int sum = 0.0 -v 
+	-------------------------------------------------------------
+	|
+	v                v------------------------------------------------------------------------<
+	Enter loop -> ask user for input -> if input >= 0 then sum += input & counter +=1 ->       |
+	back start loop ---------------------------------------------------------------------------^
+	||
+	 -> if input < 0 then output (double)sum/counter -> exit program
+Loops Notes:
+	1. Where does loop start
+	2. Where does loop end
+	3. How do you get there?
+____________________________
+step 4:
+	See "WhileLoopTest.java"
+____________________________
+Step 5:
+	Test Cases:
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	out of date
+	__________________________________
+	|Inputs   |Expected Outputs|Output|
+	|_________|________________|______|
+	|0        |0               |      |
+	|2,2,-100 |4               |      |
+	|1,2,3,-1 |6               |      |
+	|_________|________________|______|
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
