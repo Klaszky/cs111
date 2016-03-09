@@ -8,6 +8,7 @@ public class test{
 		// System.out.println(MathFunctions.GCF(3, 9));
 		// System.out.println(MathFunctions.GCF(15, 15));
 		// System.out.println(MathFunctions.GCF(8, 12));
+		System.out.println(MathFunctions.intLen(-23408742));
 		// MathFunctions.simplifyFaction(3, 9);
 		// MathFunctions.simplifyFaction(7, 14);
 		// MathFunctions.simplifyFaction(14, 2);
@@ -20,7 +21,7 @@ public class test{
 		// "In one of the Bard's best-thought-of tragedies our insistent hero, Hamlet, queries on two fronts about how life turns rotten. "));
 		// System.out.println(StringMethods.isAnagram("twin peaks", "A Newt Szip"));
 		// System.out.println(StringMethods.reverse("Hello"));
-		System.out.println(StringMethods.longestSeq("abaabacccaabbbbazzzzzzzzzbszbnSS"));
+		// System.out.println(StringMethods.longestSeq("abaabacccaabbbbazzzzzzzzzbszbnSS"));
 	}
 
 }
