@@ -145,10 +145,29 @@ public class StringMethods
 		return false;
 	}
 
-	public static String LongestSeq(String str)
+	public static String longestSeq(String str)
 	{
-		//no
-		return "Not yet implemented";
+		String biggest = "", current = str.substring(0, 1);
+		for(int i = 1; i < str.length(); i++)
+		{
+			if(str.charAt(i) == str.charAt(i-1))
+			{
+				current = current + str.substring(i, i+1);
+			}
+			else
+			{
+				if(current.length() > biggest.length())
+				{
+					biggest = current.substring(0, current.length());
+					current = str.substring(i, i+1);
+				}
+				else
+				{
+					current = str.substring(i, i+1);	
+				}
+			}
+		}
+		return biggest;
 	}
 
 	public static String reverse(String str)
