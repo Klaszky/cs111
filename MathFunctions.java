@@ -29,4 +29,16 @@ public class MathFunctions{
 		System.out.println();
 	}
 
+	public static int intLen(int num)
+	{
+		int counter = 0;
+		do
+		{
+			num /= 10;
+			counter++;
+		}while(num != 0);
+
+		return counter;
+	}
+
 }
