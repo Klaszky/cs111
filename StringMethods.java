@@ -150,4 +150,15 @@ public class StringMethods
 		//no
 		return "Not yet implemented";
 	}
+
+	public static String reverse(String str)
+	{
+		String toReturn = "";
+		for(int i = str.length(); 0 < i; i--)
+		{
+			toReturn = toReturn + str.substring(i-1, i);
+		}
+
+		return toReturn;
+	}
 }
