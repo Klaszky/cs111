@@ -180,4 +180,75 @@ public class StringMethods
 
 		return toReturn;
 	}
+
+	public static int countWords(String original, int minLength)
+	{
+		int counter = 0;
+		for(String str: original.split(" "))
+		{
+			System.out.println(str);
+			if(countLetters(str) >= minLength)
+			{
+				counter++;
+			}
+		}
+		return counter;
+	}
+	
+	public static int countLetters(String word)
+	{
+		int letterCounter = 0;
+		for(int i = 0; i < word.length(); i++)
+		{
+			if( Character.isLetter(word.charAt(i)) )
+			{
+				letterCounter++;
+			}
+		}
+		return letterCounter;
+	}
+
+	public static String compress (String original)
+	{
+		int counter = 1;
+		String compressed = "";
+
+		if(original.length() == 1)
+		{
+			return original;
+		}
+
+		for(int i = 0; i < original.length(); i++)
+		{
+			if(i == original.length()-1)
+			{
+				if(original.charAt(i) == original.charAt(i-1))
+				{
+					compressed = compressed  + counter + original.substring(i-1, i);
+				}
+				else
+				{
+					compressed = compressed + original.substring(i, i+1);
+				}
+			}
+			else if( original.charAt(i) == original.charAt(i+1) )
+			{
+				counter++;
+			}
+			else
+			{
+				if(counter > 1)
+				{
+					compressed = compressed + counter + original.substring(i, i+1);
+					counter = 1;
+				}
+				else
+				{
+					compressed = compressed + original.substring(i, i+1);
+				}
+			}
+		}
+		
+		return compressed;
+	}
 }

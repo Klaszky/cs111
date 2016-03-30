@@ -12,12 +12,7 @@ public class Arrofarr
 		int col = matrix.length;
 		int row;
 
-		matrix = revArrOrd(matrix);
-
-		for(int i = 0; i < matrix.length; i++)
-		{
-			matrix[i] = revOrd(matrix[i]);
-		}
+		matrix = turnNinety(matrix);
 
 		for(int i = 0; i < col; i++)
 		{
@@ -51,5 +46,17 @@ public class Arrofarr
 		}
 
 		return toReturn;
+	}
+
+	public static int[][] turnNinety(int[][] arr)
+	{
+		arr = revArrOrd(arr);
+
+		for(int i = 0; i < arr.length; i++)
+		{
+			arr[i] = revOrd(arr[i]);
+		}
+
+		return arr;
 	}
 }
