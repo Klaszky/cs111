@@ -1,72 +1,59 @@
 public class MatrixOps
 {
-	public static void main(String[] args)
-	{
-		double[][] a = {
-			{0, 1, 2, 5, 3, 6},
-			{-2, 2, 3, 7,-2, 4},
-			{0, 3, 4, 42, 6, 4}
-		};
+	// public static void main(String[] args)
+	// {
+	// 	double[][] a = {
+	// 		{0, 1, 2, 5, 3, 6},
+	// 		{-2, 2, 3, 7,-2, 4},
+	// 		{0, 3, 4, 42, 6, 4}
+	// 	};
 
-		double[][] b = {
-			{1, 0, -2},
-			{0, 3, -1},
-			{3, 4, 6},
-			{1, 3, 4},
-			{5, 5, 6},
-			{0, 0, 0}
-		};
+	// 	double[][] b = {
+	// 		{1, 0, -2},
+	// 		{0, 3, -1},
+	// 		{3, 4, 6},
+	// 		{1, 3, 4},
+	// 		{5, 5, 6},
+	// 		{0, 0, 0}
+	// 	};
 
-		double[][] c = multiply(a, b);
+	// 	double[][] c = multiply(a, b);
 
-		if(c == null)
-		{
-			System.out.println("null");
-		}
-		else
-		{
-			ArrayMethods.prtArrD(c);
-		}
-	}
+	// 	if(c == null)
+	// 	{
+	// 		System.out.println("null");
+	// 	}
+	// 	else
+	// 	{
+	// 		ArrayMethods.prtArrD(c);
+	// 	}
+	// }
 
 	public static double[][] multiply(double[][] A, double[][] B)
 	{
+		
+		double sum = 0;
+		int rowsInA = A.length, rowsInB = B.length;
+		int colsInA = A[0].length, colsInB = B[0].length;
 
-		if(A == null || B == null)
+		double[][] toReturn = new double[rowsInA][colsInB];
+
+		if(colsInA != rowsInB)
 		{
 			return null;
 		}
-		
-		double[][] toReturn = new double[A.length][B[0].length];
-		double sum = 0;
 
-		for(int i = 0; i < A.length; i++)
+
+		for(int i = 0; i < rowsInA; i++)
 		{
-			if(A[i].length != B.length)
+			for(int j = 0; j < colsInB; j++)
 			{
-				return null;
-			}
-		}
-
-		for(int i = 0; i < B.length; i++)
-		{
-			if(B[i].length != A.length)
-			{
-				return null;
-			}
-		}
-
-
-		for(int i = 0; i < A.length; i++)
-		{
-			for(int x = 0; x < A.length; x++)
-			{
-				for(int y = 0; y < A[i].length; y++)
+				for(int k = 0; k < rowsInB; k++)
 				{
-					sum += A[i][y] * B[y][x];
+					sum += (A[i][k] * B[k][j]);
 				}
 
-				toReturn[i][x] = sum;
+				toReturn[i][j] = sum;
 				sum = 0;
 			}
 		}

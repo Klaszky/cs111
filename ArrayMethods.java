@@ -6,24 +6,51 @@ A collection of array methods i've written for various reasons in class
 that were in serveral diffent files. Some are ... less than useful.
 */
 
+
 public class ArrayMethods
 {
+	public static void main(String[] args)
+	{
+		int[][] rando = fillArr(2, 10, 15);
+		prtArrI(rando);
 
+		System.out.println(countZ(rando));
+		System.out.println(countO(rando));
+
+		int[][] gradesArr = fillArr(101, 10, 11);
+
+		prtArrI(gradesArr);
+
+		grades(gradesArr);
+	}
+
+
+	//homework assignment.
 	public static double[][] multiply(double[][] A, double[][] B)
 	{
-		double[][] toReturn = new double[A.length][B[0].length];
+		
 		double sum = 0;
+		int rowsInA = A.length, rowsInB = B.length;
+		int colsInA = A[0].length, colsInB = B[0].length;
 
-		for(int i = 0; i < A.length; i++)
+		double[][] toReturn = new double[rowsInA][colsInB];
+
+		if(colsInA != rowsInB)
 		{
-			for(int x = 0; x < A.length; x++)
+			return null;
+		}
+
+
+		for(int i = 0; i < rowsInA; i++)
+		{
+			for(int j = 0; j < colsInB; j++)
 			{
-				for(int y = 0; y < A[i].length; y++)
+				for(int k = 0; k < rowsInB; k++)
 				{
-					sum += A[i][y] * B[y][x];
+					sum += (A[i][k] * B[k][j]);
 				}
 
-				toReturn[i][x] = sum;
+				toReturn[i][j] = sum;
 				sum = 0;
 			}
 		}
@@ -31,6 +58,8 @@ public class ArrayMethods
 		return toReturn;
 	}
 
+	//takes an array of arrays and puts it in order
+	//from last to first
 	public static int[][] revArrOrd(int[][] mat)
 	{
 		int[][] toReturn = new int[mat.length][mat[0].length];
@@ -42,6 +71,7 @@ public class ArrayMethods
 		return toReturn;
 	}
 
+	//takes an array and and returns it reversed
 	public static int[] revOrd(int[] row)
 	{
 		int[] toReturn = new int[row.length];
@@ -53,6 +83,8 @@ public class ArrayMethods
 		return toReturn;
 	}
 
+	//uses revOrd and revArrOrd to turn an array
+	//90 degrees
 	public static int[][] turnNinety(int[][] arr)
 	{
 		arr = revArrOrd(arr);
@@ -65,6 +97,8 @@ public class ArrayMethods
 		return arr;
 	}
 
+	//fills an array of user chosen size with random numbers
+	//up to a user defined limit
 	public static int[][] fillArr(int maxNum, int row, int col)
 	{
 		Random rand = new Random();
@@ -81,6 +115,10 @@ public class ArrayMethods
 		return toReturn;
 	}
 
+	//i am tired of writing nested for loops to 
+	//print out my twoD arrays so this does that for me
+	//I tried to write an overloaded method, but I
+	//couldn't get it to work correctly
 	public static void prtArrD(double[][] inputArr)
 	{
 		for(int i = 0; i < inputArr.length; i++)
@@ -94,6 +132,7 @@ public class ArrayMethods
 		}
 	}
 
+	//same as prtArrD except with ints
 	public static void prtArrI(int[][] inputArr)
 	{
 		for(int i = 0; i < inputArr.length; i++)
@@ -107,7 +146,7 @@ public class ArrayMethods
 		}
 	}
 
-
+	//counts number of zeros in an array of arrays
 	public static int countZ(int[][] inputArr)
 	{
 		int numOfZeros = 0;
@@ -125,6 +164,7 @@ public class ArrayMethods
 		return numOfZeros;
 	}
 
+	//counts number of ones in an array of arrays
 	public static int countO(int[][] inputArr)
 	{
 		int numOfOnes = 0;
@@ -142,6 +182,7 @@ public class ArrayMethods
 		return numOfOnes;
 	}
 
+	//does avg grade and drops lowest
 	public static void grades(int[][] inputArr)
 	{
 		int div, sum = 0;
@@ -164,6 +205,7 @@ public class ArrayMethods
 		}
 	}
 
+	//finds and returns lowest number in an array
 	public static int lowest(int[] inputArr)
 	{
 		int lowest = inputArr[0];
@@ -178,6 +220,7 @@ public class ArrayMethods
 		return lowest;
 	}
 
+	//goes over a twoD array and avgers all te numbers
 	public static double classAvg(double[][] grades)
 	{
 		double avg, totalAvg = 0;
@@ -217,6 +260,7 @@ public class ArrayMethods
 		return total /= count;
 	}
 
+	//Spits out the avgs for all students
 	public static void studentAvg(double[][] grades, String[] students)
 	{
 		double avg;
@@ -235,6 +279,7 @@ public class ArrayMethods
 		}
 	}
 
+	//returns the avg of a specific student
 	public static double studentAvg(double[][] grades, String[] roster, String name)
 	{
 		int i;
@@ -263,6 +308,8 @@ public class ArrayMethods
 		return total;
 	}
 
+	//fills an array of arrays with a random size with
+	//random numbers up to 100
 	public static int[][] randomArrFill()
 	{
 		Random rand = new Random();
@@ -271,12 +318,13 @@ public class ArrayMethods
 		{
 			for(int x = 0; x < toReturn[i].length; x++)
 			{
-				toReturn[i][x] = rand.nextInt(100);
+				toReturn[i][x] = rand.nextInt(101);
 			}
 		}
 		return toReturn;
 	}
 
+	//same as above, but with doubles
 	public static double[][] randomArrFillD()
 	{
 		Random rand = new Random();
