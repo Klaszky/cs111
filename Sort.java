@@ -1,6 +1,6 @@
 public class Sort
 {
-	public static int[] iSort(int[] org)
+	public static void iSort(int[] org)
 	{
 		int itemsSorted;
 		int temp;
@@ -18,11 +18,9 @@ public class Sort
 			}
 			org[loc + 1] = temp;
 		}
-
-		return org;
 	}
 
-	public static int[] sSort(int[] org)
+	public static void sSort(int[] org)
 	{
 		int temp;
 		int lowest;
@@ -42,7 +40,57 @@ public class Sort
 			org[i] = org[lowest];
 			org[lowest] = temp;
 		}
-
-		return org;
 	}
+
+	// public static void mSort(int[] org)
+	// {
+	// 	if(a.length == 1)
+	// 	{
+	// 		return;
+	// 	}
+	// 	mergeSort(left);
+	// 	mergeSort(right);
+	// 	merge(left, right);
+	// }
+
+	public static int bSearch(int[] a, int num)
+	{
+		iSort(a);
+		int upperBound = a.length-1;
+		int lowerBound = 0;
+		int midPoint = (upperBound + lowerBound) / 2;
+
+		while(upperBound >= lowerBound)
+		{
+			if(num == a[midPoint])
+			{
+				return midPoint;
+			}
+			else if(num > a[midPoint])
+			{
+				lowerBound = midPoint + 1;
+				midPoint = (upperBound + lowerBound) / 2;
+			}
+			else
+			{
+				upperBound = midPoint - 1; 
+				midPoint = (upperBound + lowerBound) / 2;
+			}
+		}
+
+		return -1;
+	}
+
+	// merge sort helper method
+	// public static int[] merge(int[] a, int[] b)
+	// {
+	// 	int left = a.length;
+	// 	int right = b.length;
+	// 	int[] toReturn = new int[left + right];
+
+		
+
+
+	// }
+	
 }
