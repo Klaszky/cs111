@@ -9,6 +9,7 @@ that were in serveral diffent files. Some are ... less than useful.
 
 public class ArrayMethods
 {
+	// for testing
 	public static void main(String[] args)
 	{
 		int[][] rando = fillArr(2, 10, 15);
@@ -144,6 +145,16 @@ public class ArrayMethods
 
 			System.out.println();
 		}
+	}
+
+	//oneD array
+	public static void printArr(int[] inputArr)
+	{
+		for(int i = 0; i < inputArr.length; i++)
+		{
+			System.out.println(inputArr[i]);
+		}
+		System.out.println();
 	}
 
 	//counts number of zeros in an array of arrays
@@ -321,6 +332,18 @@ public class ArrayMethods
 				toReturn[i][x] = rand.nextInt(101);
 			}
 		}
+		return toReturn;
+	}
+
+	public static int[] fillOneD()
+	{
+		Random rand = new Random();
+		int[] toReturn = new int[rand.nextInt(1000)];
+		for(int i = 0; i < toReturn.length; i++)
+		{
+			toReturn[i] = rand.nextInt(5000);
+		}
+
 		return toReturn;
 	}
 
